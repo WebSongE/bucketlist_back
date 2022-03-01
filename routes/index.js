@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+var admin=require('firebase-admin');
+var serviceAccount=require('../bucketlist-ef183-firebase-adminsdk-d8whw-334e8b23e8.json');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+admin.initializeApp({
+  credential:admin.credential.cert(serviceAccount)
 });
 
-module.exports = router;
+module.exports=admin;
